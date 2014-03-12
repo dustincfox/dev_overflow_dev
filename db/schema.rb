@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20140312161833) do
   create_table "posts", force: true do |t|
     t.string   "subject"
     t.text     "body"
-    t.integer  "votes"
-    t.boolean  "open"
+    t.integer  "votes",           default: 0
+    t.boolean  "open",            default: true
     t.integer  "favorite_answer"
     t.datetime "created_at"
     t.datetime "updated_at"

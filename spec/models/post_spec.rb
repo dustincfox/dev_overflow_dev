@@ -5,7 +5,7 @@ describe Post do
 
 
   context "attributes" do
-    let(:post) {Post.create(:subject => "test", :body => "something")}#, :open => true, :votes => 0, :favorite_answer => nil)
+    let(:post) {Post.create(:subject => "test", :body => "something")}
 
     it "should have a subject" do
       expect(post.subject).to eq "test"
@@ -18,6 +18,15 @@ describe Post do
     it "should be initialized as open" do
       expect(post.open).to be_true
     end
+
+    it "should should not have a favorite post when initialized" do
+      expect(post.favorite_answer).to eq nil
+    end
+
+    it "should have zero votes when initialized" do
+      expect(post.votes).to eq 0
+    end
+
   end
 
 end

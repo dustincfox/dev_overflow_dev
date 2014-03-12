@@ -3,9 +3,9 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :subject
       t.text :body
-      t.integer :votes
-      t.boolean :open
-      t.integer :favorite_answer
+      t.integer :votes, default: 0
+      t.boolean :open, default: true
+      t.integer :favorite_answer, default: nil
 
       t.timestamps
     end
