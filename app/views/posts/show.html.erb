@@ -3,6 +3,17 @@
 <br><br>
 
 <%= @post.body %>
+<hr>
+<h2>Answers: <%= @answers.length %></h2>
 
+<% @answers.each do |answer| %>
+  <div class="answer">
+    <p><%= answer.body %></p>
+    <p><%= answer.updated_at %> | <%= link_to "#{answer.user.first_name} #{answer.user.last_name}", user_path(answer.user) %></p>
+  </div>
+<% end %>
+
+
+<%= render 'form_answer' %>
 
 
