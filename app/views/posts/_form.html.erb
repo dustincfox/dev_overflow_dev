@@ -1,0 +1,11 @@
+<%= form_for :post, url: {action: "create"} do |f| %>
+  <%= f.label :subject %>:
+  <%= f.text_field :subject %>
+  <br><br>
+
+  <%= f.label :body %>:
+  <%= f.text_area :body %>
+  <br><br>
+
+  <%= f.submit "Save" %>
+<%end%>
