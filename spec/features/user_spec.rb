@@ -46,6 +46,26 @@ feature "User" do
     end
   end
 
+  context "user profile page" do
+    it "should show a users name" do
+    @user = User.create(:first_name => "Name", :last_name => "Last", :email => "jbwilmoth@joe.com", :password => "password1", :password_confirmation => "password1" )
+      visit user_path(@user.id)
+      expect(page).to have_content "Name Last"
+    end
+
+    it "should tell user he has no posts" do
+    @user = User.create(:first_name => "Name", :last_name => "Last", :email => "jbwilmoth@joe.com", :password => "password1", :password_confirmation => "password1" )
+      visit user_path(@user.id)
+      expect(page).to have_content "Posts: 0"
+    end
+
+    it "should redirect to root if profile does not exist" do
+      visit user_path(1_000_000)
+      expect(current_path).to eq(root_path)
+    end
+
+  end
+
 
 
 end
