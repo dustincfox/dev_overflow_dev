@@ -47,6 +47,8 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+  gem 'pry'
+  gem 'pry-nav'
   gem "rspec-rails", "~> 2.0"
   gem "capybara", "~> 2.2.1"
   gem "database_cleaner"

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DbcOverflow</title>
+  <title>RecomMemeDo</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +9,8 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+<%= link_to "Sign Up", new_user_registration_path %>
+<%= link_to "Be a loser and leave", destroy_user_session_path, :method => :delete %>
 
 <%= yield %>
 
