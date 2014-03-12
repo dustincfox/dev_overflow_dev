@@ -26,7 +26,6 @@ describe Post do
     it "should have zero votes when initialized" do
       expect(post.votes).to eq 0
     end
-
   end
 
 end
