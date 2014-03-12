@@ -11,3 +11,37 @@
  *= require_self
  *= require_tree .
  */
+*{
+  padding: 0;
+  margin: 0;
+ }
+.notice,
+.alert {
+  display: block;
+  top: 45%;
+  left:47%;
+  position: absolute;
+  width: 300px;
+  height: auto;
+  z-index: 600;
+}
+
+nav {
+  background-color: #333;
+}
+
+nav ul li{
+  display: inline-block;
+}
+
+nav ul li a{
+  color: #FFF;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+
+}
+nav ul li a:hover{
+  color: #FF0000;
+  background-color: #2299AA;
+}
