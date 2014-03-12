@@ -147,7 +147,10 @@ PLATFORMS
 DEPENDENCIES
   capybara (~> 2.2.1)
   coffee-rails (~> 4.0.0)
+<<<<<<< HEAD
   database_cleaner
+=======
+>>>>>>> b870b71fde026b004cbf9db7853e6cc95ae6bbd0
   devise
   jbuilder (~> 1.2)
   jquery-rails
