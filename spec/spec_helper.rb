@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 
-=======
-# This file is copied to spec/ when you run 'rails generate rspec:install'
->>>>>>> 35f4f836cffd841049405ac1171e7c7d9cc41839
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
