@@ -9,7 +9,11 @@
 <% @answers.each do |answer| %>
   <div class="answer">
     <p><%= answer.body %></p>
-    <p><%= answer.updated_at %> | <%= link_to "#{answer.user.first_name} #{answer.user.last_name}", user_path(answer.user) %></p>
+    <p><%= answer.updated_at.to_s[0..9] %> | <%= link_to "#{answer.user.first_name} #{answer.user.last_name}", user_path(answer.user) %>
+    <% if current_user == answer.user %>
+      | <%= link_to "Edit Answer", edit_post_answer_path(answer.post, answer) %>
+      </p>
+    <% end %>
   </div>
 <% end %>
 
