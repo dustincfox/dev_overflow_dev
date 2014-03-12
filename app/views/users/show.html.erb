@@ -1,9 +1,7 @@
-<%= current_user.first_name %><br>
-
-<h2><%= @user.first_name %></h2><br>
+<h2><%= @user.first_name %> <%= @user.last_name %> </h2><br>
 
 <br>
-
+<p>Posts: <%= @posts.length %></p>
 <% @posts.each do |post| %>
 <h3><%= link_to post.subject, post_path(post) %></h3>
 <% if @user == current_user %>
