@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140312211552) do
     t.integer  "votes",           default: 0
     t.boolean  "open",            default: true
     t.integer  "favorite_answer"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
