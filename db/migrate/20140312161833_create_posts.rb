@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :votes, default: 0
       t.boolean :open, default: true
       t.integer :favorite_answer, default: nil
+      t.belongs_to :user
 
       t.timestamps
     end
