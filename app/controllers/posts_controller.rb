@@ -19,6 +19,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if @post
+      @answers = @post.answers
+      @answer = Answer.new
+    else
+      redirect_to root_path
+    end
   end
 
   def edit

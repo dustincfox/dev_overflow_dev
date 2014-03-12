@@ -1,0 +1,6 @@
+<%= form_for [@post, @answer] do |f| %>
+ <%= f.label :body, "Add your answer here" %>:
+  <%= f.text_area :body %>
+  <br><br>
+  <%= f.submit "Answer" %>
+<% end %>
