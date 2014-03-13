@@ -9,6 +9,12 @@ DbcOverflow::Application.routes.draw do
   post "/answers/:answer_id/comments", to: "comments#create",  as: :answer_comments
   delete "/comments/:id", to: "comments#destroy", as: :delete_comment
 
+  get "/posts/:post_id/upvote", to: "votes#upvote", as: :post_upvote
+  get "/answers/:answer_id/upvote", to: "votes#upvote", as: :answer_upvote
+  get "/posts/:post_id/downvote", to: "votes#downvote", as: :post_downvote
+  get "/answers/:answer_id/downvote", to: "votes#downvote", as: :answer_downvote
+
+
   resources :posts do
     resources :answers
   end
