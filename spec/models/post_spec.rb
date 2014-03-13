@@ -23,9 +23,9 @@ describe Post do
       expect(post.favorite_answer).to eq nil
     end
 
-    it "should have zero votes when initialized" do
-      expect(post.votes).to eq 0
-    end
+    # it "should have zero votes when initialized" do
+    #   expect(post.votes).to eq 0
+    # end
   end
 
 end
