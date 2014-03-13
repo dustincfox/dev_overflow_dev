@@ -1,3 +1,6 @@
+## RecomMemeDo
+> Jess - Alex - Joe - Tom
+
 ## RecoMemeDoh
 
 #### Contributors
@@ -5,11 +8,20 @@
 * Contact Jess [@JLUnrein](https://twitter.com/JLUnrein)
 
 
+
 ### Specs:
 
 * Ruby version: 2.0.0-p353
 
 * Rails version: 4.0.3
+
+* System dependencies: [Devise](https://github.com/plataformatec/devise), [Acts As Votable](https://github.com/ryanto/acts_as_votable)
+
+* Configuration
+
+* Database creation: [Postgresql](https://bitbucket.org/ged/ruby-pg/wiki/Home)
+
+* How to run the test suite: ```rake```
 
 * PostgreSQL version: 9.3.2
 
@@ -24,7 +36,7 @@
 * Database creation: [Postgresql](https://bitbucket.org/ged/ruby-pg/wiki/Home)
 > Install ```postgres``` to your system before launching the database.
 
-* How to run the test suite: 
+* How to run the test suite:
 > Type ```rake``` into the console.
 
 * Deployment instructions:

@@ -7,6 +7,7 @@ DbcOverflow::Application.routes.draw do
   get "/answers/:answer_id/comments/new", to: "comments#new", as: :new_answer_comment
   post "/posts/:post_id/comments", to: "comments#create", as: :post_comments
   post "/answers/:answer_id/comments", to: "comments#create",  as: :answer_comments
+  delete "/comments/:id", to: "comments#destroy", as: :delete_comment
 
   resources :posts do
     resources :answers
