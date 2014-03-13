@@ -1,7 +1,7 @@
 == READ ME
 
 ## RecomMemeDo
-> Jess - Alex - Joe - Tom
+* Jess - Alex - Joe - Tom
 
 
 ### Specs:
