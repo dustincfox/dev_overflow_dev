@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include ApplicationHelper
 
   def index
     @posts = Post.all.reverse
@@ -12,6 +13,10 @@ class PostsController < ApplicationController
     @user = current_user
     @post = Post.new(post_params.merge(:user_id => @user.id))
     if @post.save
+      @tags = params[:tag_list]
+      @tags.split.each do |tag|
+        @post.tags << create_tag(tag)
+      end
       redirect_to post_url(@post)
     else
       render 'new'
