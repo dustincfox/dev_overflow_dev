@@ -12,7 +12,7 @@
 <%= @post.body %>
 <div class="comment">
   <% @post.comments.each do |comment| %>
-    <%= comment.body %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %>
+    <%= comment.body %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
   <% end %>
 </div>
 <%= link_to 'Add Comment', new_post_comment_path(@post) %>
@@ -37,7 +37,7 @@
 
       <div class="comment">
         <% answer.comments.each do |comment| %>
-          <%= comment.body %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %>
+          <%= comment.body %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
         <% end %>
       </div>
     <% end %>
@@ -53,3 +53,4 @@ Tags:
   <% @tags.each do |tag| %>
     <%= link_to "#{tag.name}", tag_path(tag) %> |
   <% end %>
+</div>
