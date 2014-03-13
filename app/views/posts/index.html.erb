@@ -1,4 +1,6 @@
 <br><br><br>
 <% @posts.each do |post| %>
-  <h3><%= link_to post.subject, post_path(post) %><h3><br><br>
+  <h3><%= link_to post.subject, post_path(post) %><h3>
+    <p><%= post.vote %></p><br>
+    <p><%= post.vote.size %></p><br>
 <% end %>
