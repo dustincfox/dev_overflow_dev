@@ -5,7 +5,8 @@ class VotesController < ApplicationController
       @voted.liked_by current_user
       redirect_to post_path(@post)
     else
-      redirect_to root_path
+      flash[:alert]="You need to be signed in to vote!!!" 
+      redirect_to new_user_session_path
     end
   end
 
@@ -15,7 +16,8 @@ class VotesController < ApplicationController
       @voted.downvote_from current_user
       redirect_to post_path(@post)
     else
-      redirect_to root_path
+      flash[:alert]="You need to be signed in to vote!!!" 
+      redirect_to new_user_session_path
     end
   end
 
