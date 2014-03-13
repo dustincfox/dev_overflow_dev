@@ -1,4 +1,4 @@
-## RecomMemeDo
+## RecoMemeDo
 * Jess - Alex - Joe - Tom
 
 
