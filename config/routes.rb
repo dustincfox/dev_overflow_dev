@@ -6,8 +6,10 @@ DbcOverflow::Application.routes.draw do
   post "posts/:post_id/answers/", to: "answers#create"
   get "/posts/:post_id/answers", to: "answers#index", as: :post_answers
   get "posts/:post_id/answers/:id", to: "answers#edit", as: :edit_post_answer
-  put "posts/:post_id/answers/:id/update", to: "answers#update" 
-  patch "posts/:post_id/answers/:id/update", to: "answers#update"
+  get "/posts/:post_id/answers/:id", to: "answer#show", as: :post_answer
+
+  put "posts/:post_id/answers/:id", to: "answers#update" 
+  patch "posts/:post_id/answers/:id", to: "answers#update"
   delete "posts/:post_id/answers/:id", to: "answers#destroy"
   resources :posts do
     # resources :answers
