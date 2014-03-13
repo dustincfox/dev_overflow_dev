@@ -41,6 +41,10 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
+      @tags = params[:tag_list]
+      @tags.split.each do |tag|
+        @post.tags << create_tag(tag)
+      end
       redirect_to user_path(current_user)
     else
       render 'edit'
