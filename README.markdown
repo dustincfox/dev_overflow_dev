@@ -1,5 +1,3 @@
-== READ ME
-
 ## RecomMemeDo
 * Jess - Alex - Joe - Tom
 
