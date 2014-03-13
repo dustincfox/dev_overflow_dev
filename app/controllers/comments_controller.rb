@@ -35,6 +35,18 @@ class CommentsController < ApplicationController
 
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.commentable.class == Post
+      @post = @comment.commentable
+    else
+      @post = @comment.commentable.post
+    end
+
+    @comment.destroy
+
+    redirect_to post_path(@post)
+  end
 
   private
   def comment_params
