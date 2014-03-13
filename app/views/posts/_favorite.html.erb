@@ -1,0 +1,25 @@
+<div class="favorite">
+  <h1>THIS IS THE FAVORITE</h1>
+
+  <div class="votecell">
+    <%= link_to "^", answer_upvote_path(@favorite) %><br>
+    <%= @favorite.upvotes.size - @favorite.downvotes.size %><br>
+    <%= link_to "v", answer_downvote_path(@favorite) %>
+  </div>
+
+  <div class="answer">
+    <p><%= @favorite.body %></p>
+    <p><%= @favorite.updated_at.to_s[0..9] %> | <%= link_to "#{@favorite.user.first_name} #{@favorite.user.last_name}", user_path(@favorite.user) %>
+    <% if current_user == @favorite.user %>
+      | <%= link_to "Edit Answer", edit_post_answer_path(@favorite.post, @favorite) %>
+        <%= link_to 'Add Comment', new_answer_comment_path(@favorite) %>
+      </p>
+
+      <div class="comment">
+        <% @favorite.comments.each do |comment| %>
+          <%= comment.body %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

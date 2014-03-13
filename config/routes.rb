@@ -13,7 +13,7 @@ DbcOverflow::Application.routes.draw do
   get "/answers/:answer_id/upvote", to: "votes#upvote", as: :answer_upvote
   get "/posts/:post_id/downvote", to: "votes#downvote", as: :post_downvote
   get "/answers/:answer_id/downvote", to: "votes#downvote", as: :answer_downvote
-
+  patch "/posts/:post_id/favorite/:answer_id", to: "posts#favorite", as: :post_favorite
   get "/tags", to: "tags#index", as: :tags
   get "/tags/:id", to: "tags#show", as: :tag
 

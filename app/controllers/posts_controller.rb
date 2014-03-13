@@ -27,7 +27,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @tags = @post.tags
     if @post
+
       @answers = @post.answers
+      @favorite = @post.find_fav
+      # binding.pry
       @answer = Answer.new
     else
       redirect_to root_path
@@ -54,8 +57,16 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-
     redirect_to user_path(current_user)
+  end
+
+  def favorite
+    @post = Post.find(params[:post_id])
+    @post.favorite_answer = params[:answer_id]
+    @answers = @post.answers
+    @favorite = @post.find_favorite
+    @answer = Answer.new
+    redirect_to post_path(@post)
   end
 
   private
