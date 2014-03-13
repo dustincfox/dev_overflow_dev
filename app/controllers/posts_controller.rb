@@ -63,8 +63,9 @@ class PostsController < ApplicationController
   def favorite
     @post = Post.find(params[:post_id])
     @post.favorite_answer = params[:answer_id]
+    @post.save
     @answers = @post.answers
-    @favorite = @post.find_favorite
+    @favorite = @post.find_fav
     @answer = Answer.new
     redirect_to post_path(@post)
   end

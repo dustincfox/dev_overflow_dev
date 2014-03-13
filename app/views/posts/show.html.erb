@@ -32,7 +32,9 @@
       <%= answer.upvotes.size - answer.downvotes.size %><br>
       <%= link_to "v", answer_downvote_path(answer) %>
     </div>
-
+  <div class="star">
+    <%= link_to "THIS IS A HUGE STAR", post_favorite_path(@post,answer) ,method: :patch%>
+  </div>
     <div class="answer">
       <p><%= answer.body %></p>
       <p><%= answer.updated_at.to_s[0..9] %> | <%= link_to "#{answer.user.first_name} #{answer.user.last_name}", user_path(answer.user) %>

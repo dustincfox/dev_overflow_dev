@@ -1,10 +1,12 @@
 <div class="favorite">
-  <h1>THIS IS THE FAVORITE</h1>
-
   <div class="votecell">
     <%= link_to "^", answer_upvote_path(@favorite) %><br>
     <%= @favorite.upvotes.size - @favorite.downvotes.size %><br>
     <%= link_to "v", answer_downvote_path(@favorite) %>
+  </div>
+
+  <div class="star">
+    <span id="favorite_star">"THIS IS A HUGE STAR" </span>
   </div>
 
   <div class="answer">
