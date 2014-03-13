@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .
  */
+#favorite_star{
+  color: red;
+  font-size: 40px;
+}
+
 *{
   padding: 0;
   margin: 0;

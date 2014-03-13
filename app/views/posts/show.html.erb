@@ -19,29 +19,39 @@
 <hr>
 <h2>Answers: <%= @answers.length %></h2>
 
+
+<% if @post.find_fav %>
+  <%= render 'favorite' %>
+<% end %>
+
 <% @answers.each do |answer| %>
 
-  <div class="votecell">
-    <%= link_to "^", answer_upvote_path(answer) %><br>
-    <%= answer.upvotes.size - answer.downvotes.size %><br>
-    <%= link_to "v", answer_downvote_path(answer) %>
+  <% unless answer == @favorite %>
+    <div class="votecell">
+      <%= link_to "^", answer_upvote_path(answer) %><br>
+      <%= answer.upvotes.size - answer.downvotes.size %><br>
+      <%= link_to "v", answer_downvote_path(answer) %>
+    </div>
+  <div class="star">
+    <%= link_to "THIS IS A HUGE STAR", post_favorite_path(@post,answer) ,method: :patch%>
   </div>
+    <div class="answer">
+      <p><%= answer.body %></p>
+      <p><%= answer.updated_at.to_s[0..9] %> | <%= link_to "#{answer.user.first_name} #{answer.user.last_name}", user_path(answer.user) %>
+      <% if current_user == answer.user %>
+        | <%= link_to "Edit Answer", edit_post_answer_path(answer.post, answer) %>
+          <%= link_to 'Add Comment', new_answer_comment_path(answer) %>
+        </p>
 
-  <div class="answer">
-    <p><%= answer.body %></p>
-    <p><%= answer.updated_at.to_s[0..9] %> | <%= link_to "#{answer.user.first_name} #{answer.user.last_name}", user_path(answer.user) %>
-    <% if current_user == answer.user %>
-      | <%= link_to "Edit Answer", edit_post_answer_path(answer.post, answer) %>
-        <%= link_to 'Add Comment', new_answer_comment_path(answer) %>
-      </p>
+        <div class="comment">
+          <% answer.comments.each do |comment| %>
+            <%= comment.body %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
-      <div class="comment">
-        <% answer.comments.each do |comment| %>
-          <%= comment.body %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
 <% end %>
 
 
