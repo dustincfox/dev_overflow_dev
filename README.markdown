@@ -16,9 +16,7 @@
 
 * Database creation: [Postgresql](https://bitbucket.org/ged/ruby-pg/wiki/Home)
 
-* How to run the test suite: ```ruby 
-                               rake
-                             ```
+* How to run the test suite: ```rake```
 
 * Deployment instructions:
 > Run ```rails s``` to start the server and go to localhost:3000 in your browser.
