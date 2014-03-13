@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <nav>
@@ -20,12 +21,16 @@
       <li></li>
     </ul>
   </nav>
-
   <% if notice || alert %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   <% end %>
-<%= yield %>
+  <div id="wrapper">
+    <%= yield %>
 
+  </div>
+  <footer>
+      <span>Alex - Jess - Joe - Tom &copy; Badassery Inc.</span>
+  </footer>
 </body>
 </html>
