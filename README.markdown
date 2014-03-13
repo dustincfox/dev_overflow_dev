@@ -21,6 +21,6 @@
                              ```
 
 * Deployment instructions:
-> Run ...rails s... to start the server and go to localhost:3000 in your browser.
+> Run ```ruby rails s``` to start the server and go to localhost:3000 in your browser.
 
 
