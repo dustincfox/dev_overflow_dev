@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
       @commentable_id = params[:post_id]
       @post = Post.find(params[:post_id])
     end
-    @comment = Comment.new(comment_params.merge(commentable_id: @commentable_id, commentable_type: @commentable_type, user_id: current_user))
+    @comment = Comment.new(comment_params.merge(commentable_id: @commentable_id, commentable_type: @commentable_type, user_id: current_user.id))
     if @comment.save
       redirect_to post_path(@post)
     else
