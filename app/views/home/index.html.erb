@@ -1,5 +1,5 @@
 <h1>RecomMemeDo</h1>
 
-
-
-Hi.
+<% @posts.each do |post_obj| %>
+  <li><%= post_obj.subject%></li>
+<% end %>
