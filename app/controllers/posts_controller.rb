@@ -25,6 +25,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @tags = @post.tags
     if @post
       @answers = @post.answers
       @answer = Answer.new

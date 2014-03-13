@@ -14,6 +14,8 @@ DbcOverflow::Application.routes.draw do
   get "/posts/:post_id/downvote", to: "votes#downvote", as: :post_downvote
   get "/answers/:answer_id/downvote", to: "votes#downvote", as: :answer_downvote
 
+  get "/tags", to: "tags#index", as: :tags
+  get "/tags/:id", to: "tags#show", as: :tag
 
   resources :posts do
     resources :answers
