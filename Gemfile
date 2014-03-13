@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 
+gem 'sprockets', '2.11.0'
+
 # Voting system for up and down voting in active record
 gem 'acts_as_votable', '~> 0.8.0'
 
