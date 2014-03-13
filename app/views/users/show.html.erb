@@ -1,5 +1,5 @@
 <h2><%= @user.first_name %> <%= @user.last_name %> </h2><br>
-
+<%= link_to "Add your Recomandation Request",  new_post_path %>
 <br>
 <p>Posts: <%= @posts.length %></p>
 <% @posts.each do |post| %>
