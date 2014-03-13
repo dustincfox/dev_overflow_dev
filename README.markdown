@@ -17,6 +17,7 @@
   Migrate the associations by running ```rake db:migrate``` in the console.
 
 * Database creation: [Postgresql](https://bitbucket.org/ged/ruby-pg/wiki/Home)
+> Install ```postgres (PostgreSQL) 9.3.2``` to your system before launching the databse.
 
 * How to run the test suite: 
 > Type ```rake``` into the console.
