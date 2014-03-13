@@ -2,6 +2,7 @@
 
 #### Contributors
 * Jess - Alex - Joe - Tom
+* Contact Jess [@JLUnrein](https://twitter.com/JLUnrein)
 
 
 ### Specs:
