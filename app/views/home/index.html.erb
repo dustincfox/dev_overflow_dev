@@ -1,5 +1,5 @@
 <h1>RecomMemeDo</h1>
 
-<% @posts.each do |post_obj| %>
-  <li><%= post_obj.subject%></li>
+<% @posts.each do |post| %>
+  <li><%= link_to "#{post.subject}", post_path(post)%></li>
 <% end %>
