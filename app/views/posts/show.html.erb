@@ -54,8 +54,9 @@
 
 <% end %>
 
-
-<%= render 'form_answer' %>
+<% if user_signed_in? %>
+  <%= render 'form_answer' %>
+<% end %>
 
 <br>
 Tags:
