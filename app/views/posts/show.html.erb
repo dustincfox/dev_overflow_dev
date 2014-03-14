@@ -1,4 +1,4 @@
-<h1><%= @post.subject %></h1>
+<h1><%= raw Rinku.auto_link(@post.subject) %></h1>
 
 
 <br><br>
@@ -12,7 +12,7 @@
 <%= @post.body %>
 <div class="comment">
   <% @post.comments.each do |comment| %>
-    <%= comment.body %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
+    <%= raw Rinku.auto_link(comment.body) %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
   <% end %>
 </div>
 <%= link_to 'Add Comment', new_post_comment_path(@post) %>
@@ -36,7 +36,7 @@
     <%= link_to "THIS IS A HUGE STAR", post_favorite_path(@post,answer) ,method: :patch%>
   </div>
     <div class="answer">
-      <p><%= answer.body %></p>
+      <p><%= raw Rinku.auto_link(answer.body) %></p>
       <p><%= answer.updated_at.to_s[0..9] %> | <%= link_to "#{answer.user.first_name} #{answer.user.last_name}", user_path(answer.user) %>
       <% if current_user == answer.user %>
         | <%= link_to "Edit Answer", edit_post_answer_path(answer.post, answer) %>
@@ -45,7 +45,7 @@
 
         <div class="comment">
           <% answer.comments.each do |comment| %>
-            <%= comment.body %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
+            <%= raw Rinku.auto_link(comment.body) %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
           <% end %>
         </div>
       <% end %>
@@ -54,8 +54,9 @@
 
 <% end %>
 
-
-<%= render 'form_answer' %>
+<% if user_signed_in? %>
+  <%= render 'form_answer' %>
+<% end %>
 
 <br>
 Tags:
