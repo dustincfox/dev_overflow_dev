@@ -1,4 +1,4 @@
-<h1><%= raw Rinku.auto_link(@post.subject) %></h1>
+<h1><%= @post.subject %></h1>
 
 
 <br><br>
@@ -9,7 +9,7 @@
   <%= link_to "v", post_downvote_path(@post) %>
 </div>
 
-<%= @post.body %>
+<%= raw Rinku.auto_link(@post.body) %>
 <div class="comment">
   <% @post.comments.each do |comment| %>
     <%= raw Rinku.auto_link(comment.body) %> by: <%= "#{comment.user.first_name} #{comment.user.last_name}" %> <% if current_user == comment.user %> | <%= link_to "Delete", delete_comment_path(comment), method: :delete %> <% end %>
