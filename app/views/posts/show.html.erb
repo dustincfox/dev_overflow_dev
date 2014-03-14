@@ -33,10 +33,10 @@
       <%= link_to "v", answer_downvote_path(answer) %>
     </div>
   <div class="star">
-    <% if user_signed_in? %>
+    <% if current_user.id == @post.user_id %>
       <%= link_to "THIS IS A HUGE STAR", post_favorite_path(@post,answer) ,method: :patch%>
     <% end %>
-    
+
   </div>
     <div class="answer">
       <p><%= raw Rinku.auto_link(answer.body) %></p>
