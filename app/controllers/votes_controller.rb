@@ -2,8 +2,12 @@ class VotesController < ApplicationController
   def upvote
     if current_user
       @voted, @post = voted_element_and_post
-      if @voted.voted_on_by?(current_user)
-        @voted.unliked_by current_user
+      if @voted.voted_on_by? current_user
+        if current_user.voted_as_when_voted_for @voted
+          @voted.unliked_by current_user
+        else
+          @voted.liked_by current_user
+        end
       else
         @voted.liked_by current_user
       end
@@ -17,10 +21,14 @@ class VotesController < ApplicationController
   def downvote
     if current_user
       @voted, @post = voted_element_and_post
-      if @voted.voted_on_by?(current_user)
-        @voted.undisliked_by current_user
+      if @voted.voted_on_by? current_user
+        if current_user.voted_as_when_voted_for @voted
+          @voted.disliked_by current_user
+        else
+          @voted.undisliked_by current_user
+        end
       else
-        @voted.downvote_from current_user
+        @voted.disliked_by current_user
       end
       redirect_to post_path(@post)
     else
